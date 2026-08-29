@@ -216,3 +216,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+#Project data (OULAD CSVs - not commited, information on how to download it will be in README)
+data/
