@@ -219,3 +219,4 @@ __marimo__/
 
 #Project data (OULAD CSVs - not commited, information on how to download it will be in README)
 data/
+oulad.duckdb
