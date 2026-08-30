@@ -6,9 +6,9 @@ This project explores the Open University Learning Analytics Dataset (OULAD) to 
 The question it aims to answer: is early student engagement (or other factors) a useful sign for predicting students at risk of failing or withdrawing from a course?
 
 ## Data
-The Open University Learning Analytics Dataset (OULAD) is based on UK Open University data from 2013-2014 covering student engagement, assessment results, demographics, socioeconomic indicators. 
+The Open University Learning Analytics Dataset (OULAD) is based on UK Open University data (2013-2014) covering student engagement, assessment results, demographics, socioeconomic indicators. 
 download OULAD from kaggle: https://www.kaggle.com/datasets/anlgrbz/student-demographics-online-education-dataoulad?resource=download
-Once downloaded, extract the files so the CSVs in a desired location
+Once downloaded, extract the files so the CSVs sit a desired location
 
 ## Setup
 1. Create and activate a Python virtual environment.
@@ -16,8 +16,10 @@ Once downloaded, extract the files so the CSVs in a desired location
 3. Open `scripts/load_data.py` and set the CSV file paths to match where your data(OULAD csv files) lives.
 4. Run the script to load all OULAD tables into a local DuckDB database.
 
-`scripts/` — scripts to load the OULAD data into DuckDB
-`sql/` — SQL queries against the loaded data
+## Project structure
+
+`scripts/` - scripts to load the OULAD data into DuckDB
+`sql/` - SQL queries against the loaded data
 `notes/` - project notes and decisions (may or may not include to finished project)
 
 
