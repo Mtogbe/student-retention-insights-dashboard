@@ -1,3 +1,5 @@
+--contains queries I used to do some Exploratory Data Analysis
+
 --query for final_result (pass,withdrawn,distinction,fail) class distribution. 
 SELECT final_result, COUNT(*) AS total_count FROM oulad.studentInfo GROUP BY final_result
 
@@ -17,3 +19,10 @@ SELECT MAX(sum_click) AS max_clicks FROM oulad.studentVle
 SELECT MIN(sum_click) AS min_clicks FROM oulad.studentVle 
 --query to check the frequency of each number of clicks (sum_click) across all the days in studentVLE. click value 1 appears 5.1M times 
 SELECT sum_click, COUNT(sum_click) AS click_frequency FROM oulad.studentVle GROUP BY sum_click ORDER BY sum_click ASC, click_frequency DESC
+
+--query used to pinpoint the earliest assessment date for each module/subject in each session (code_presentation)
+SELECT code_presentation, code_module, MIN(date) AS earliest_assessment FROM oulad.assessments GROUP BY code_presentation, code_module ORDER BY code_module ASC
+
+--query used to find the date of the earliest assessment   
+SELECT AVG(date) AS average_start_assessment FROM oulad.assessments WHERE date <= 61
+
