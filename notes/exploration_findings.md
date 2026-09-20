@@ -54,7 +54,8 @@ current conditions 09/18/26:
 students that have a date_unregistration less than 0 will be dropped.
 
 
-
+possible questions to explore:
+1. do the type of resources at risk vs not not at risk students engage in differ greatly?
 
 
 

@@ -2,7 +2,7 @@
 --one row per enrollment with early engagement (days 0-28),
 -- final outcome, and an at-risk label (Fail/Withdrawn = At Risk).
 -- Excludes pre-start withdrawals (unregistered before day 0) as engagement artifacts.
-CREATE TABLE retention_analysis AS SELECT si.code_module, si.code_presentation, si.id_student, COALESCE(SUM(svle.sum_click), 0) AS total_engagement, si.final_result,
+CREATE TABLE retention_analysis AS SELECT si.code_module, si.code_presentation, si.id_student, COALESCE(SUM(svle.sum_click), 0) AS total_engagement, sr.date_unregistration, si.final_result,
 CASE -- Collapse the four outcomes into a binary at-risk flag for the dashboard
     WHEN si.final_result = 'Withdrawn' THEN 'At Risk'
     WHEN si.final_result = 'Fail' THEN 'At Risk'
@@ -20,3 +20,5 @@ LEFT JOIN oulad.studentRegistration sr
     AND si.code_presentation = sr.code_presentation
 WHERE sr.date_unregistration IS NULL OR sr.date_unregistration >= 0 -- Keep students who never withdrew (NULL) or withdrew on/after day 0
 GROUP BY si.code_module, si.code_presentation, si.id_student, si.final_result
+
+COPY oulad.retention_analysis TO 'destination/path' (HEADER, DELIMITER ','); --copies analysis table and sends csv to defined file path
